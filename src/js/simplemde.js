@@ -1392,7 +1392,9 @@ function SimpleMDE(options) {
 SimpleMDE.prototype.markdown = function(text) {
 	if(marked) {
 		// Initialize
-		var markedOptions = {};
+		var markedOptions = {
+			sanitize: true
+		};
 
 
 		// Update options
@@ -1532,7 +1534,7 @@ function isLocalStorageAvailable() {
 		try {
 			localStorage.setItem("smde_localStorage", 1);
 			localStorage.removeItem("smde_localStorage");
-		} catch(e) {
+		} catch (e) {
 			return false;
 		}
 	} else {
